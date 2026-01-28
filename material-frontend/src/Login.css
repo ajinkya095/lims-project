@@ -1,0 +1,94 @@
+.login-container {
+    height: 100vh;
+    width: 100%;
+    /* The Link you provided */
+    background-image: url('https://lloyds.in/wp-content/themes/lloyds-metals-new/img/lloyd-metals/Ghughus-Steel-Plant.jpg');
+    
+    /* This ensures the image covers the whole screen perfectly */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* This centers your login box in the middle of the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-header {
+    margin-bottom: 20px;
+    background: white;        /* Adds the white circle/box around logo */
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.app-logo {
+    height: 60px; /* Adjust based on your logo size */
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    width: 350px;
+    text-align: center;
+}
+
+.login-card h2 {
+    margin-bottom: 25px;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box; /* Critical for padding */
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #0056b3;
+}
+
+.login-footer {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.login-footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}

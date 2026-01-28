@@ -1,0 +1,267 @@
+/* 1. RESET & GLOBAL STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 2. MAIN CONTAINER WITH BACKGROUND IMAGE */
+.dashboard-container {
+    min-height: 100vh;
+    width: 100vw;
+    /* Replace the URL below with your actual background image link or path */
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('https://your-industrial-bg-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-bar {
+  width: 100%;
+  height: 60px;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  z-index: 2000;
+  color: white;
+}
+
+.menu-btn {
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.logo {
+  height: 35px;
+}
+
+.logout-btn {
+  background: #d9534f;
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: -260px;
+  width: 260px;
+  height: calc(100vh - 60px);
+  background: rgba(15, 23, 42, 0.95);
+  color: white;
+  padding: 20px;
+  transition: 0.3s;
+  z-index: 1500;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.5);
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar h3 {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 10px;
+}
+
+.sidebar button {
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  margin-bottom: 8px;
+  background: none;
+  border: none;
+  color: #e5e7eb;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.sidebar button:hover {
+  background: #1e293b;
+}
+
+
+/* 3. TOP NAVIGATION BAR */
+.header-nav {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.nav-logo {
+    height: 60px;
+    background: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.nav-btns {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btns button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background: white;
+    color: #163a5f;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-btns button.active {
+    background: #163a5f;
+    color: white;
+}
+
+.nav-btns button:hover {
+    background: #e0e0e0;
+}
+
+/* 4. THE WHITE CONTENT CARD */
+.main-card {
+    background: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    width: 95%;
+    max-width: 1300px;
+    min-height: 500px; /* Prevents the "empty" look */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+/* 5. SELECTION AREA */
+.selection-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.selection-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.selection-row label {
+    font-weight: bold;
+    color: #333;
+}
+
+.selection-row select {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    outline: none;
+}
+
+.id-badge {
+    background: #f1f3f5;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-family: monospace;
+    color: #666;
+    border: 1px solid #ddd;
+}
+
+.divider {
+    border: none;
+    border-top: 2px solid #eee;
+    margin-bottom: 30px;
+}
+
+/* 6. DYNAMIC FIELDS GRID */
+.fields-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Columns */
+    gap: 25px;
+    animation: fadeIn 0.5s ease;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #555;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.input-group input {
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.input-group input:focus {
+    border-color: #163a5f;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(22, 58, 95, 0.1);
+}
+
+/* 7. WELCOME MESSAGE (When empty) */
+.welcome-msg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    color: #888;
+}
+
+.welcome-msg h3 {
+    margin-bottom: 10px;
+    color: #444;
+}
+
+/* 8. FOOTER */
+.footer-text {
+    color: white;
+    font-size: 13px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    margin-top: 10px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1100px) {
+    .fields-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 850px) {
+    .fields-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
