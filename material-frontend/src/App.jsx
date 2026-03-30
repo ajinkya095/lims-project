@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import Login from "./Login";
+import Login from "./pages/Login";
 import RawMaterialTesting from "./RawMaterialTesting";
 import Register from "./Register";
 import Reports from "./Reports";
@@ -31,9 +31,9 @@ const hasAccess = (section, key) => {
     return false;
   }
 
-  return permissions?.[section]?.[key] === true;
+  // return permissions?.[section]?.[key] === true;
+  return !!permissions?.[section]?.[key];
 };
-
 
 function App() {
   return (
@@ -51,8 +51,9 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/raw-material" element={<RawMaterialTesting />} />
 
-        {/* REGISTER (only logged-in users; UI should restrict who sees the button) */}
+        {/* REGISTER */}
         <Route
           path="/register"
           element={
@@ -85,14 +86,15 @@ function App() {
             </PrivateRoute>
           }
         />
+
         <Route path="/unauthorized" element={<Unauthorized />} />
       </Routes>
-      
     </Router>
   );
 }
 
 export default App;
+
 
 
 

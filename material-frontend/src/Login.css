@@ -3,12 +3,12 @@
     width: 100%;
     /* The Link you provided */
     background-image: url('https://lloyds.in/wp-content/themes/lloyds-metals-new/img/lloyd-metals/Ghughus-Steel-Plant.jpg');
-    
+
     /* This ensures the image covers the whole screen perfectly */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
+
     /* This centers your login box in the middle of the image */
     display: flex;
     justify-content: center;
@@ -17,19 +17,22 @@
 
 .logo-header {
     margin-bottom: 20px;
-    background: white;        /* Adds the white circle/box around logo */
+    background: white;
+    /* Adds the white circle/box around logo */
     padding: 10px 20px;
     border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .app-logo {
-    height: 60px; /* Adjust based on your logo size */
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+    height: 60px;
+    /* Adjust based on your logo size */
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 .login-card {
-    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    background: rgba(255, 255, 255, 0.9);
+    /* Semi-transparent white */
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -60,23 +63,25 @@
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    box-sizing: border-box; /* Critical for padding */
+    box-sizing: border-box;
+    /* Critical for padding */
 }
 
 .login-btn {
     width: 100%;
     padding: 12px;
-    background-color: #007bff;
+    background-color: var(--accent);
     color: white;
     border: none;
     border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, box-shadow 0.3s;
 }
 
 .login-btn:hover {
-    background-color: #0056b3;
+    background-color: var(--accent-hover);
+    box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
 .login-footer {
@@ -85,7 +90,7 @@
 }
 
 .login-footer a {
-    color: #007bff;
+    color: var(--accent);
     text-decoration: none;
 }
 

@@ -2,10 +2,27 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  --bg-base: #0d0d0d;
+  --bg-elevated: #141414;
+  --accent: #cc1010;
+  --accent-hover: #e61212;
+  --accent-dark: #8b0000;
+  --sidebar-bg: #b91c1c;
+  --sidebar-bg-alt: #a80f0f;
+  --accent-soft: #e7a4a4;
+  --accent-glow: rgba(204, 16, 16, 0.15);
+  --accent-glow-strong: rgba(204, 16, 16, 0.3);
+  --accent-border: rgba(204, 16, 16, 0.45);
+  --text-primary: rgba(255, 255, 255, 0.87);
+  --text-on-light: #1f1f1f;
+  --input-text-color: #1f2937;
+  --input-muted-color: #6b7280;
+  --heading-color: #4b5563;
+  --label-color: #6b7280;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--text-primary);
+  background-color: var(--bg-base);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,11 +32,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--accent);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--accent-hover);
 }
 
 body {
@@ -33,6 +50,21 @@ h1 {
   line-height: 1.1;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-weight: 600;
+}
+
+label {
+  color: var(--label-color);
+  font-weight: 500;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -40,25 +72,38 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--bg-elevated);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, box-shadow 0.25s, background-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--accent);
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+input:focus,
+input:focus-visible,
+select:focus,
+select:focus-visible,
+textarea:focus,
+textarea:focus-visible {
+  outline: none;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px var(--accent-glow) !important;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: var(--text-on-light);
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: var(--accent-hover);
   }
   button {
     background-color: #f9f9f9;
