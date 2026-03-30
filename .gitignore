@@ -1,0 +1,6 @@
+.vs/
+bin/
+obj/
+build_verify_patch/
+*.log
+*.user
