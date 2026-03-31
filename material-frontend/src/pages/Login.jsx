@@ -148,18 +148,22 @@ export default function Login() {
   return (
     <div style={styles.page}>
       <div style={styles.overlay}></div>
-      <div style={styles.shell}>
-        {/* TOP HEADER: Logo and LIMS */}
+      <div style={styles.shell} className="login-shell">
         <div style={styles.topHeader}>
-          <img
-            src="https://lloyds.in/wp-content/themes/lloyds-metals-new/img/lloyds-metals-logo.svg"
-            alt="Lloyds Metals"
-            style={styles.logo}
-          />
-          <div style={styles.brand} className="brand-pop">LIMS</div>
-          <div style={styles.tagline} className="tagline-pop">
-            Laboratory Information Management System
+          <div style={styles.topHeaderRow} className="login-header-row">
+            <img
+              src="https://lloyds.in/wp-content/themes/lloyds-metals-new/img/lloyds-metals-logo.svg"
+              alt="Lloyds Metals"
+              style={styles.logo}
+            />
+            <div style={styles.headerTitleGroup}>
+              <div style={styles.brand} className="brand-pop">
+                Laboratory Information Management System
+              </div>
+              <div style={styles.tagline} className="tagline-pop">LIMS</div>
+            </div>
           </div>
+          <div style={styles.headerDivider} />
           <div style={styles.headerAmbient} className="header-ambient" aria-hidden="true">
             <div className="lab-computer">
               <div className="monitor">
@@ -185,9 +189,9 @@ export default function Login() {
           </div>
         </div>
 
-        <div style={styles.contentWrapper}>
+        <div style={styles.contentWrapper} className="login-content">
           {/* LEFT: Lab Animation Panel */}
-          <div style={styles.left}>
+          <div style={styles.left} className="login-left-pane">
             <div style={styles.labStageWrap}>
               <div style={styles.labStage} className="lab-stage">
                 <div className="tube-grid">
@@ -208,7 +212,7 @@ export default function Login() {
           </div>
 
           {/* RIGHT: Login Card */}
-          <div style={styles.right}>
+          <div style={styles.right} className="login-right-pane">
             <div style={styles.card} className="login-card-animated">
               <div style={styles.cardHeader}>
                 <div style={styles.cardTitle}>Sign in</div>
@@ -261,6 +265,7 @@ export default function Login() {
                     type="button"
                     onClick={() => setShowPassword((p) => !p)}
                     style={styles.eyeBtn}
+                    className="login-eye-btn"
                     aria-label="Toggle password visibility"
                     title="Show/Hide Password"
                   >
@@ -276,19 +281,17 @@ export default function Login() {
                   }}
                 />
 
-                <button style={styles.button} type="submit">
+                <button style={styles.button} className="login-submit-btn" type="submit">
                   Sign in
                 </button>
               </form>
-
-              <div style={styles.footerText}>
-                © 2026 Lloyds Metals & Energy Limited (LMEL) – LIMS
-                <br />
-                Developed by IT team @Ghugus
-              </div>
             </div>
           </div>
         </div>
+      </div>
+
+      <div style={styles.pageFooter}>
+        © 2026 Lloyds Metals & Energy Limited (LMEL) - LIMS. All rights reserved.
       </div>
 
       <style>{css}</style>
@@ -526,224 +529,226 @@ function escapeHtml(str) {
 /* ---------------- Styling ---------------- */
 
 const styles = {
-  shell: {
-    width: "100%",
-    maxWidth: 1120,
-    minHeight: 620,
-    display: "flex",
-    flexDirection: "column",
-    borderRadius: 20,
-    overflow: "hidden",
-    boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
-    background: "#fff",
-    position: "relative",
-    zIndex: 2,
-  },
-  topHeader: {
-    background: "#e5e7eb",
-    padding: "24px 26px 16px 26px",
+  page: {
+    minHeight: "100vh",
+    background: `url("https://lloyds.in/wp-content/themes/lloyds-metals-new/img/lloyd-metals/Ghughus-Steel-Plant.jpg") center/cover no-repeat`,
+    fontFamily: "Segoe UI, system-ui, Arial",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    textAlign: "center",
-    position: "relative",
-    overflow: "hidden",
-  },
-  headerAmbient: {
-    position: "absolute",
-    right: 20,
-    top: 12,
-    width: 220,
-    height: 100,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    pointerEvents: "none",
-    opacity: 0.92,
-  },
-  contentWrapper: {
-    display: "grid",
-    gridTemplateColumns: "1.05fr 0.95fr",
-    flex: 1,
-  },
-  left: {
-    background: "#e5e7eb",
-    padding: 26,
-    paddingTop: 0,
-    position: "relative",
-    zIndex: 1,
-  },
-  right: {
-    background: "#e5e7eb",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 26,
-    position: "relative",
-    zIndex: 5,
-  },
-
-  helperText: {
-    marginTop: 12,
-    color: "#334155",
-    fontWeight: 600,
-    fontSize: 13,
-  },
-  logo: {
-    height: 26,
-    width: "auto",
-    alignSelf: "flex-start",
-  },
-  brand: {
-    marginTop: 4,
-    fontWeight: 900,
-    fontSize: 48,
-    letterSpacing: "1.2px",
-    color: "#0f172a",
-    lineHeight: 1,
-  },
-  tagline: {
-    marginTop: 6,
-    color: "#475569",
-    fontWeight: 700,
-    fontSize: 16,
-    lineHeight: 1.35,
-  },
-
-  labStageWrap: {
-    marginTop: 20,
-  },
-
-  labStage: {
+    padding: "32px 22px 26px",
     position: "relative",
   },
-
   overlay: {
     position: "fixed",
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: "rgba(0,0,0,0.35)", // tint layer
+    backgroundColor: "rgba(0,0,0,0.45)",
     zIndex: 0,
   },
-
-
-
+  shell: {
+    width: "100%",
+    maxWidth: 1120,
+    minHeight: 640,
+    display: "flex",
+    flexDirection: "column",
+    borderRadius: 18,
+    overflow: "hidden",
+    boxShadow: "0 22px 65px rgba(0,0,0,0.42)",
+    background: "#f3f4f6",
+    position: "relative",
+    zIndex: 2,
+    border: "1px solid rgba(255,255,255,0.1)",
+  },
+  topHeader: {
+    minHeight: 92,
+    padding: "18px 24px 16px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 20,
+    background: "linear-gradient(90deg, rgba(43,12,12,0.98), rgba(122,12,12,0.96) 60%, rgba(192,0,0,0.88))",
+    borderBottom: "1px solid rgba(255,255,255,0.08)",
+    position: "relative",
+    overflow: "hidden",
+  },
+  topHeaderRow: {
+    display: "flex",
+    alignItems: "center",
+    gap: 18,
+    minWidth: 0,
+    flex: 1,
+  },
+  headerTitleGroup: {
+    display: "flex",
+    flexDirection: "column",
+    minWidth: 0,
+  },
+  headerDivider: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: "1px",
+    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent)",
+  },
+  headerAmbient: {
+    position: "relative",
+    width: 220,
+    height: 88,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    pointerEvents: "none",
+    opacity: 0.96,
+    flexShrink: 0,
+  },
+  contentWrapper: {
+    display: "grid",
+    gridTemplateColumns: "1.05fr 0.95fr",
+    flex: 1,
+    background: "#f3f4f6",
+  },
+  left: {
+    padding: "28px 24px 30px",
+    position: "relative",
+    zIndex: 1,
+    background: "linear-gradient(180deg, rgba(243,244,246,0.96), rgba(234,236,239,0.98))",
+  },
+  right: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "28px 26px 30px",
+    position: "relative",
+    zIndex: 2,
+    background: "linear-gradient(180deg, rgba(243,244,246,0.96), rgba(234,236,239,0.98))",
+  },
+  logo: {
+    height: 34,
+    width: "auto",
+    flexShrink: 0,
+    filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.18))",
+  },
+  brand: {
+    fontWeight: 800,
+    fontSize: 19,
+    letterSpacing: "0.4px",
+    color: "#ffffff",
+    lineHeight: 1.2,
+    textTransform: "none",
+    textShadow: "0 2px 10px rgba(0,0,0,0.25)",
+  },
+  tagline: {
+    marginTop: 4,
+    color: "rgba(255,255,255,0.82)",
+    fontWeight: 700,
+    fontSize: 13,
+    letterSpacing: "1.6px",
+    textTransform: "uppercase",
+  },
+  labStageWrap: {
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+  },
+  labStage: {
+    position: "relative",
+    width: "100%",
+  },
   card: {
     width: "100%",
-    maxWidth: 420,
-    borderRadius: 20,
+    maxWidth: 430,
+    borderRadius: 12,
     padding: 28,
-
-    /* Professional card */
-    background: "rgba(255,255,255,0.95)",
-    backdropFilter: "blur(8px)",
-
-    /* Depth */
-    boxShadow: `
-    0 25px 60px rgba(0,0,0,0.18),
-    inset 0 1px 0 rgba(255,255,255,0.6)
-  `,
-
-    border: "1px solid rgba(255,255,255,0.4)",
+    background: "#f3f4f6",
+    border: "1.5px solid rgba(192,0,0,0.42)",
+    boxShadow: "0 18px 40px rgba(17,24,39,0.16), 0 0 0 1px rgba(122,12,12,0.06)",
   },
   cardHeader: {
-    marginBottom: 12,
+    marginBottom: 18,
   },
   cardTitle: {
     color: "#1f2937",
     fontWeight: 800,
     fontSize: 28,
     lineHeight: 1.1,
-    marginBottom: 4,
+    marginBottom: 6,
   },
   cardSub: {
-    color: "#334155",
+    color: "#4b5563",
     fontWeight: 700,
     fontSize: 14,
-    lineHeight: 1.35,
+    lineHeight: 1.4,
   },
-
   label: {
     display: "block",
-    color: "#0f172a",
+    color: "#111827",
     fontWeight: 800,
     fontSize: 13,
     marginTop: 14,
     marginBottom: 8,
   },
-
-  inputWrap: { position: "relative" },
-
+  inputWrap: {
+    position: "relative",
+  },
   input: {
     width: "100%",
     padding: "12px 14px",
-    borderRadius: 12,
+    borderRadius: 10,
     border: "1px solid #cbd5e1",
     fontSize: 14,
-    color: "#000000",
-    background: "linear-gradient(180deg, #f8fafc, #eef2f7)",
-    boxShadow: "inset 0 1px 2px rgba(0,0,0,0.08)",
+    color: "#111827",
+    background: "#ffffff",
+    boxShadow: "inset 0 1px 2px rgba(15,23,42,0.06)",
     outline: "none",
   },
-
-
-  page: {
-    minHeight: "100vh",
-    background: `url("https://lloyds.in/wp-content/themes/lloyds-metals-new/img/lloyd-metals/Ghughus-Steel-Plant.jpg") center/cover no-repeat`,
-    fontFamily: "Segoe UI, system-ui, Arial",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 22,
-  },
-
   passwordRow: {
     display: "grid",
-    gridTemplateColumns: "1fr 44px",
+    gridTemplateColumns: "1fr 48px",
     gap: 10,
     alignItems: "center",
   },
   eyeBtn: {
-    height: 44,
-    borderRadius: 12,
+    height: 46,
+    borderRadius: 10,
     border: "1px solid #cbd5e1",
-    background: "#fff",
+    background: "#ffffff",
     cursor: "pointer",
     fontSize: 18,
+    color: "#7a0c0c",
+    boxShadow: "0 6px 16px rgba(15,23,42,0.08)",
   },
-
   button: {
     marginTop: 22,
     width: "100%",
-    padding: "14px",
-    borderRadius: 14,
+    padding: "12px 20px",
+    borderRadius: 8,
     border: "none",
-
-    background: "linear-gradient(180deg, #111827, #020617)",
+    background: "linear-gradient(90deg, #7a0c0c, #c00000)",
     color: "white",
-    fontWeight: 900,
+    fontWeight: 800,
     fontSize: 15,
-    letterSpacing: "0.4px",
-
-    boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
+    letterSpacing: "0.3px",
+    boxShadow: "0 12px 24px rgba(122,12,12,0.28)",
     cursor: "pointer",
   },
-
-  footerText: {
-    marginTop: 14,
-    fontSize: 12,
-    color: "#94a3b8",
+  pageFooter: {
+    marginTop: 18,
+    color: "rgba(255,255,255,0.92)",
+    fontSize: 13,
     lineHeight: 1.4,
     textAlign: "center",
+    position: "relative",
+    zIndex: 2,
+    textShadow: "0 2px 8px rgba(0,0,0,0.35)",
   },
-
-  // caret mirror (hidden)
   caretMirror: {
-    position: "fixed",      // ✅ NOT absolute
-    top: "-9999px",         // ✅ out of viewport
+    position: "fixed",
+    top: "-9999px",
     left: "-9999px",
     whiteSpace: "pre",
     fontSize: 14,
@@ -770,119 +775,109 @@ const css = `
 svg{
   display:block;
 }
-  button:hover {
+.login-submit-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+  box-shadow: 0 16px 30px rgba(122,12,12,0.34);
+  background: #a00000 !important;
 }
-
+.login-eye-btn:hover {
+  border-color: rgba(192,0,0,0.42);
+  box-shadow: 0 10px 22px rgba(122,12,12,0.14);
+}
 input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-glow);
+  border-color: #c00000;
+  box-shadow: 0 0 0 3px rgba(192,0,0,0.12);
 }
-
 input,
 input[type="text"],
 input[type="password"] {
-  color: #000 !important;
-  -webkit-text-fill-color: #000 !important;
-  caret-color: #000;
+  color: #111827 !important;
+  -webkit-text-fill-color: #111827 !important;
+  caret-color: #111827;
 }
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-text-fill-color: #000 !important;
-  caret-color: #000;
+  -webkit-text-fill-color: #111827 !important;
+  caret-color: #111827;
   transition: background-color 9999s ease-in-out 0s;
 }
-
 input::placeholder {
-  color: #64748b;
+  color: #6b7280;
   opacity: 1;
 }
-
 input::-webkit-input-placeholder {
-  color: #64748b;
+  color: #6b7280;
 }
-
 .lab-stage .tube-grid{
   display:grid;
-  grid-template-columns: repeat(2, minmax(110px, 1fr));
-  gap: 14px;
-  padding: 14px;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 18px;
+  padding: 8px;
 }
-
 .lab-stage .tube{
-  background: rgba(255,255,255,0.7);
-  border: 1px solid rgba(0,0,0,0.08);
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  border: 1px solid rgba(203,213,225,0.9);
   border-radius: 14px;
-  padding: 10px;
+  padding: 12px;
   display:flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  height: 170px;
+  height: 172px;
   position: relative;
-  box-shadow: 0 8px 18px rgba(15,23,42,0.08);
+  box-shadow: 0 10px 24px rgba(15,23,42,0.08);
 }
-
 .lab-stage .tube-neck{
   width: 28px;
   height: 18px;
   border-radius: 8px 8px 6px 6px;
-  background: rgba(15,23,42,0.08);
+  background: rgba(15,23,42,0.1);
   margin-bottom: 6px;
 }
-
 .lab-stage .tube-body{
   width: 60px;
   height: 105px;
   border-radius: 14px 14px 18px 18px;
-  border: 2px solid rgba(15,23,42,0.2);
-  background: rgba(255,255,255,0.4);
+  border: 2px solid rgba(148,163,184,0.4);
+  background: rgba(255,255,255,0.72);
   position: relative;
   overflow: hidden;
 }
-
 .lab-stage .liquid{
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   height: 55%;
-  background: linear-gradient(180deg, rgba(204,16,16,0.55), rgba(139,0,0,0.88));
+  background: linear-gradient(180deg, #c00000, #7a0c0c);
   animation: liquidWave 3s ease-in-out infinite;
 }
-
 .lab-stage .tube-2 .liquid{
-  background: linear-gradient(180deg, rgba(16,185,129,0.65), rgba(5,150,105,0.9));
+  background: linear-gradient(180deg, #1fa34a, #127836);
   animation-delay: 0.4s;
 }
-
 .lab-stage .tube-3 .liquid{
-  background: linear-gradient(180deg, rgba(234,179,8,0.7), rgba(202,138,4,0.9));
+  background: linear-gradient(180deg, #d79b07, #a16207);
   animation-delay: 0.8s;
 }
-
 .lab-stage .tube-4 .liquid{
-  background: linear-gradient(180deg, rgba(239,68,68,0.6), rgba(220,38,38,0.9));
+  background: linear-gradient(180deg, #ef4444, #c00000);
   animation-delay: 1.2s;
 }
-
 .lab-stage .bubble{
   position:absolute;
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.72);
   bottom: 10px;
   left: 12px;
   animation: bubbleRise 2.8s ease-in-out infinite;
 }
 .lab-stage .bubble.b2{ left: 34px; animation-delay: 0.7s; }
 .lab-stage .bubble.b3{ left: 48px; animation-delay: 1.4s; }
-
 .header-ambient .lab-computer{
   width: 200px;
   height: 88px;
@@ -904,9 +899,9 @@ input::-webkit-input-placeholder {
   width: 128px;
   height: 62px;
   border-radius: 8px;
-  border: 2px solid rgba(204,16,16,0.28);
-  background: linear-gradient(180deg, #0d0d0d, #2a0909);
-  box-shadow: inset 0 0 18px rgba(204,16,16,0.2);
+  border: 2px solid rgba(192,0,0,0.26);
+  background: linear-gradient(180deg, #120b0b, #3a1111);
+  box-shadow: inset 0 0 18px rgba(192,0,0,0.2);
   position: relative;
   overflow: hidden;
 }
@@ -915,7 +910,7 @@ input::-webkit-input-placeholder {
   left: 0;
   right: 0;
   height: 10px;
-  background: linear-gradient(180deg, rgba(204,16,16,0.22), rgba(204,16,16,0));
+  background: linear-gradient(180deg, rgba(192,0,0,0.22), rgba(192,0,0,0));
   animation: scanMove 2.4s linear infinite;
 }
 .header-ambient .terminal-line{
@@ -932,15 +927,15 @@ input::-webkit-input-placeholder {
   height: 12px;
   margin-top: 4px;
   border-radius: 4px;
-  background: rgba(15,23,42,0.22);
+  background: rgba(226,232,240,0.4);
 }
 .header-ambient .cpu{
   grid-column: 2;
   grid-row: 1 / span 2;
   height: 72px;
   border-radius: 8px;
-  border: 2px solid rgba(15,23,42,0.2);
-  background: linear-gradient(180deg, rgba(241,245,249,0.9), rgba(226,232,240,0.95));
+  border: 2px solid rgba(203,213,225,0.95);
+  background: linear-gradient(180deg, rgba(241,245,249,0.95), rgba(226,232,240,1));
   position: relative;
 }
 .header-ambient .cpu-led{
@@ -961,15 +956,15 @@ input::-webkit-input-placeholder {
   right: 10px;
   height: 4px;
   border-radius: 3px;
-  background: rgba(15,23,42,0.26);
+  background: rgba(148,163,184,0.7);
 }
 .header-ambient .keyboard{
   grid-column: 1;
   grid-row: 2;
   height: 14px;
   border-radius: 6px;
-  border: 1px solid rgba(15,23,42,0.14);
-  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(226,232,240,0.9));
+  border: 1px solid rgba(203,213,225,0.8);
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(226,232,240,0.96));
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 4px;
@@ -977,18 +972,16 @@ input::-webkit-input-placeholder {
 }
 .header-ambient .key{
   border-radius: 2px;
-  background: rgba(15,23,42,0.2);
+  background: rgba(148,163,184,0.5);
   animation: keyTap 1.9s ease-in-out infinite;
 }
 .header-ambient .key.k2{ animation-delay: .15s; }
 .header-ambient .key.k3{ animation-delay: .3s; }
 .header-ambient .key.k4{ animation-delay: .45s; }
-
 @keyframes liquidWave{
   0%,100%{ transform: translateY(0); }
   50%{ transform: translateY(6px); }
 }
-
 @keyframes bubbleRise{
   0%{ transform: translateY(0) scale(0.8); opacity: 0.6; }
   70%{ opacity: 0.85; }
@@ -1027,16 +1020,41 @@ input::-webkit-input-placeholder {
   to{ opacity: 1; transform: translateY(0); }
 }
 @keyframes brandPulse{
-  0%,100%{ text-shadow: 0 0 0 rgba(15,23,42,0); }
-  50%{ text-shadow: 0 3px 12px rgba(15,23,42,0.15); }
+  0%,100%{ text-shadow: 0 0 0 rgba(255,255,255,0); }
+  50%{ text-shadow: 0 2px 10px rgba(255,255,255,0.12); }
 }
 @media (max-width: 900px){
   .header-ambient{ display:none; }
 }
-`; 
-
-
-
-
-
-
+@media (max-width: 860px){
+  .brand-pop{ font-size: 16px; }
+  .tagline-pop{ font-size: 12px; }
+}
+@media (max-width: 820px){
+  .login-content{
+    grid-template-columns: 1fr !important;
+  }
+  .login-left-pane,
+  .login-right-pane{
+    padding: 22px 18px !important;
+  }
+  .lab-stage .tube-grid{
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    gap: 14px;
+  }
+}
+@media (max-width: 760px){
+  .login-shell{
+    border-radius: 14px !important;
+  }
+  .login-card-animated{
+    max-width: 100%;
+  }
+}
+@media (max-width: 640px){
+  .login-header-row{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+`;

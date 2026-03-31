@@ -3705,10 +3705,16 @@ const RawMaterialTesting = () => {
   };
 
   const menuItemStyle = {
-    padding: "12px 10px",
+    padding: "12px 14px",
+    marginBottom: "8px",
     cursor: "pointer",
-    borderBottom: "1px solid rgba(255,255,255,0.2)",
+    border: "1px solid var(--sidebar-border)",
+    borderRadius: "12px",
+    background: "var(--sidebar-surface)",
+    color: "var(--sidebar-text)",
     fontWeight: "600",
+    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
+    transition: "background 0.2s ease, border-color 0.2s ease, transform 0.2s ease",
   };
 
   const frozenInputStyle = {
@@ -4058,8 +4064,8 @@ const RawMaterialTesting = () => {
             color: "white",
             padding: "20px",
             zIndex: 999,
-            boxShadow: "4px 0 12px rgba(0,0,0,0.4)",
-            borderRight: "1px solid rgba(255,255,255,0.18)",
+            boxShadow: "10px 0 28px rgba(0,0,0,0.45)",
+            borderRight: "1px solid rgba(255,255,255,0.08)",
             overflowY: "auto",
           }}
         >
@@ -4072,13 +4078,14 @@ const RawMaterialTesting = () => {
               display: "flex",
               alignItems: "center",
               gap: "10px",
+              marginBottom: openSamples ? "10px" : "14px",
             }}
           >
             <FaBox /> Samples
           </div>
 
           {openSamples && (
-            <div style={{ marginLeft: "15px" }}>
+            <div style={{ marginLeft: "10px", marginBottom: "12px" }}>
               {effectivePermissions?.pages?.rawMaterial && (
                 <div
                   onClick={() => {
@@ -4089,6 +4096,8 @@ const RawMaterialTesting = () => {
                     display: "flex",
                     alignItems: "center",
                     gap: "10px",
+                    background: "rgba(255,255,255,0.03)",
+                    color: "var(--sidebar-text-muted)",
                   }}
                 >
                   <FaFlask />
@@ -4106,6 +4115,8 @@ const RawMaterialTesting = () => {
                     display: "flex",
                     alignItems: "center",
                     gap: "10px",
+                    background: "rgba(255,255,255,0.03)",
+                    color: "var(--sidebar-text-muted)",
                   }}
                 >
                   <FaWarehouse />
@@ -4124,6 +4135,8 @@ const RawMaterialTesting = () => {
                       display: "flex",
                       alignItems: "center",
                       gap: "10px",
+                      background: "rgba(255,255,255,0.03)",
+                      color: "var(--sidebar-text-muted)",
                     }}
                   >
                     <FaSnowflake />
@@ -4139,6 +4152,8 @@ const RawMaterialTesting = () => {
                       display: "flex",
                       alignItems: "center",
                       gap: "10px",
+                      background: "rgba(255,255,255,0.03)",
+                      color: "var(--sidebar-text-muted)",
                     }}
                   >
                     <FaIndustry />
@@ -4157,6 +4172,8 @@ const RawMaterialTesting = () => {
                     display: "flex",
                     alignItems: "center",
                     gap: "10px",
+                    background: "rgba(255,255,255,0.03)",
+                    color: "var(--sidebar-text-muted)",
                   }}
                 >
                   <FaTruck />
@@ -4175,19 +4192,24 @@ const RawMaterialTesting = () => {
               display: "flex",
               alignItems: "center",
               gap: "10px",
+              marginBottom: openReports ? "10px" : "14px",
             }}
           >
             <FaChartBar /> Reports
           </div>
 
           {openReports && (
-            <div style={{ marginLeft: "15px" }}>
+            <div style={{ marginLeft: "10px", marginBottom: "12px" }}>
               {effectivePermissions?.pages?.reports && (
                 <div
                   onClick={() => {
                     handleRouteNavigation("/reports");
                   }}
-                  style={menuItemStyle}
+                  style={{
+                    ...menuItemStyle,
+                    background: "rgba(255,255,255,0.03)",
+                    color: "var(--sidebar-text-muted)",
+                  }}
                 >
                   Reports
                 </div>
@@ -4204,19 +4226,24 @@ const RawMaterialTesting = () => {
               display: "flex",
               alignItems: "center",
               gap: "10px",
+              marginBottom: openApproval ? "10px" : "14px",
             }}
           >
             <FaShieldAlt /> Approval
           </div>
 
           {openApproval && (
-            <div style={{ marginLeft: "15px" }}>
+            <div style={{ marginLeft: "10px", marginBottom: "12px" }}>
               {effectivePermissions?.pages?.managerApproval && (
                 <div
                   onClick={() => {
                     openManagerApprovalFromDashboard();
                   }}
-                  style={menuItemStyle}
+                  style={{
+                    ...menuItemStyle,
+                    background: "rgba(255,255,255,0.03)",
+                    color: "var(--sidebar-text-muted)",
+                  }}
                 >
                   Manager Approval
                 </div>
@@ -4235,6 +4262,7 @@ const RawMaterialTesting = () => {
                 display: "flex",
                 alignItems: "center",
                 gap: "10px",
+                marginTop: "6px",
               }}
             >
               <FaUserPlus /> Register User
@@ -4244,7 +4272,13 @@ const RawMaterialTesting = () => {
           {/* LOGOUT */}
           <div
             onClick={handleLogout}
-            style={{ ...menuItemStyle, color: "#ffb3b3" }}
+            style={{
+              ...menuItemStyle,
+              marginTop: "18px",
+              color: "#ffb4b4",
+              background: "rgba(185, 28, 28, 0.14)",
+              border: "1px solid rgba(185, 28, 28, 0.28)",
+            }}
           >
             Logout
           </div>

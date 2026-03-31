@@ -560,21 +560,25 @@ const sidebarStyle = {
   color: "white",
   padding: "20px",
   zIndex: 1001,
-  boxShadow: "2px 0 14px rgba(0,0,0,0.35)",
-  borderRight: "1px solid rgba(255,255,255,0.18)",
+  boxShadow: "10px 0 28px rgba(0,0,0,0.45)",
+  borderRight: "1px solid rgba(255,255,255,0.08)",
 };
 
 const menuItemStyle = {
-  padding: "11px 8px",
-  marginBottom: "2px",
+  padding: "12px 14px",
+  marginBottom: "8px",
   cursor: "pointer",
-  borderBottom: "1px solid rgba(255,255,255,0.28)",
+  border: "1px solid var(--sidebar-border)",
+  borderRadius: "12px",
+  background: "var(--sidebar-surface)",
   fontWeight: "700",
   fontSize: "16px",
   display: "flex",
   alignItems: "center",
   gap: "10px",
-  color: "rgba(255,255,255,0.92)",
+  color: "var(--sidebar-text)",
+  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
+  transition: "background 0.2s ease, border-color 0.2s ease, transform 0.2s ease",
 };
 
 const menuSectionTitleStyle = {
@@ -584,11 +588,14 @@ const menuSectionTitleStyle = {
 };
 
 const menuSubItemStyle = {
-  padding: "10px 8px 10px 22px",
-  borderBottom: "1px solid rgba(255,255,255,0.28)",
+  padding: "10px 14px 10px 22px",
+  border: "1px solid var(--sidebar-border)",
+  borderRadius: "12px",
+  background: "rgba(255,255,255,0.03)",
   fontWeight: "700",
-  color: "rgba(255,255,255,0.92)",
+  color: "var(--sidebar-text-muted)",
   fontSize: "14px",
+  marginBottom: "8px",
 };
 
 const formWrapStyle = {
